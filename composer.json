@@ -1,0 +1,26 @@
+{
+    "name": "combyna/combyna-bundle",
+    "description": "The Symfony bundle for Combyna.",
+    "autoload": {
+        "psr-4": {
+            "Combyna\\CombynaBundle\\": "src/"
+        }
+    },
+    "require-dev": {
+        "combyna/combyna": "dev-rush",
+        "symfony/dependency-injection": "~2.8.0",
+        "symfony/http-kernel": "~2.8.0"
+    },
+    "config": {
+        "platform": {
+            "php": "7.1"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dan Phillimore",
+            "email": "dan@ovms.co"
+        }
+    ]
+}

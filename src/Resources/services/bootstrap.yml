@@ -1,0 +1,7 @@
+services:
+    combyna_bundle.bootstrap:
+        class: Combyna\Component\Framework\Bootstrap\Bootstrap
+        arguments:
+            - ~ # App's bootstrap config - will be set by configuration
+            - '%kernel.cache_dir%'
+            - '%kernel.debug%'

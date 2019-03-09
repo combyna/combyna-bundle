@@ -1,0 +1,7 @@
+services:
+    combyna_bundle.cache_warmer.combyna:
+        class: Combyna\CombynaBundle\CacheWarmer\CombynaCacheWarmer
+        arguments:
+            - '@combyna_bundle.bootstrap'
+        tags:
+            - {name: kernel.cache_warmer}
