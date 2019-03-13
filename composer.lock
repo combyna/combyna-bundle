@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b835a62e34cb25028705deb9b5331baa",
+    "content-hash": "3909732e3358ed430997ee03ab40d3dd",
     "packages": [],
     "packages-dev": [
         {
@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/combyna/combyna.git",
-                "reference": "fe3441d9937054f6a9bb19bf8c638dcceb4c1358"
+                "reference": "27647ecb07c03a25c84f97d37fc9636d684b8ffa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/combyna/combyna/zipball/fe3441d9937054f6a9bb19bf8c638dcceb4c1358",
-                "reference": "fe3441d9937054f6a9bb19bf8c638dcceb4c1358",
+                "url": "https://api.github.com/repos/combyna/combyna/zipball/27647ecb07c03a25c84f97d37fc9636d684b8ffa",
+                "reference": "27647ecb07c03a25c84f97d37fc9636d684b8ffa",
                 "shasum": ""
             },
             "require": {
@@ -56,7 +56,7 @@
                 }
             ],
             "description": "Combyna - build things.",
-            "time": "2019-02-18T21:45:37+00:00"
+            "time": "2019-03-12T22:49:23+00:00"
         },
         {
             "name": "combyna/php-peg",
@@ -265,6 +265,67 @@
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
             "time": "2018-11-26T09:38:12+00:00"
+        },
+        {
+            "name": "symfony/console",
+            "version": "v2.8.49",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/console.git",
+                "reference": "cbcf4b5e233af15cd2bbd50dee1ccc9b7927dc12"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/console/zipball/cbcf4b5e233af15cd2bbd50dee1ccc9b7927dc12",
+                "reference": "cbcf4b5e233af15cd2bbd50dee1ccc9b7927dc12",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9",
+                "symfony/debug": "^2.7.2|~3.0.0",
+                "symfony/polyfill-mbstring": "~1.0"
+            },
+            "require-dev": {
+                "psr/log": "~1.0",
+                "symfony/event-dispatcher": "~2.1|~3.0.0",
+                "symfony/process": "~2.1|~3.0.0"
+            },
+            "suggest": {
+                "psr/log-implementation": "For using the console logger",
+                "symfony/event-dispatcher": "",
+                "symfony/process": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Console\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Console Component",
+            "homepage": "https://symfony.com",
+            "time": "2018-11-20T15:55:20+00:00"
         },
         {
             "name": "symfony/debug",

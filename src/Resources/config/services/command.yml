@@ -1,0 +1,9 @@
+services:
+    combyna_bundle.command.client_cache_warmup:
+        class: Combyna\CombynaBundle\Command\ClientCacheWarmupCommand
+        arguments:
+            - '@combyna_bundle.client_bootstrap'
+            - '%kernel.environment%'
+            - '%kernel.debug%'
+        tags:
+            - {name: console.command}

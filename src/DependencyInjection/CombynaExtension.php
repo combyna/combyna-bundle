@@ -11,9 +11,11 @@
 
 namespace Combyna\CombynaBundle\DependencyInjection;
 
-use Combyna\Component\Framework\Bootstrap\BootstrapInterface;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\Config\Loader\LoaderResolver;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Reference;
+use Symfony\Component\DependencyInjection\Loader\DirectoryLoader;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 /**
@@ -23,28 +25,25 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
  */
 class CombynaExtension extends Extension
 {
-    const BOOTSTRAP_SERVICE_ID = 'combyna_bundle.bootstrap';
-
     /**
      * {@inheritdoc}
      */
     public function load(array $configs, ContainerBuilder $containerBuilder)
     {
+        $fileLocator = new FileLocator(__DIR__ . '/../Resources/config');
+        $loader = new DirectoryLoader($containerBuilder, $fileLocator);
+        $loader->setResolver(new LoaderResolver([
+            new YamlFileLoader($containerBuilder, $fileLocator),
+            $loader
+        ]));
+        $loader->load('services/');
+
         $configuration = $this->getConfiguration($configs, $containerBuilder);
         $config = $this->processConfiguration($configuration, $configs);
 
         $bootstrapConfigServiceId = $config['bootstrap_config'];
 
-        // Pass the consuming app's bootstrap config service to our bootstrap
-        $bootstrapDefinition = $containerBuilder->getDefinition(self::BOOTSTRAP_SERVICE_ID);
-        $bootstrapDefinition->replaceArgument(0, new Reference($bootstrapConfigServiceId));
-
-        // Now fetch the bootstrap service, but only for use during the container build
-        /** @var BootstrapInterface $transientBootstrap */
-        $transientBootstrap = $containerBuilder->get(self::BOOTSTRAP_SERVICE_ID);
-
-        // Merge the Combyna service container builder into the main application's,
-        // so that the app ends up with only one service container
-        $containerBuilder->merge($transientBootstrap->getContainerBuilder());
+        // Pass the bootstrap config service ID to the RegisterBootstrapConfigPass compiler pass
+        $containerBuilder->setParameter('combyna.bootstrap_config', $bootstrapConfigServiceId);
     }
 }

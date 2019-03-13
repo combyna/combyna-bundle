@@ -34,6 +34,7 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->scalarNode('bootstrap_config')
+                    ->info('ID of the service implementing BootstrapConfigInterface')
                     ->isRequired()
                     ->cannotBeEmpty()
                 ->end()
