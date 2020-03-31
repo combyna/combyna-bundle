@@ -40,7 +40,7 @@ class CombynaBundle extends Bundle
         $containerBuilder->addCompilerPass(new MergeCombynaIntoAppContainerPass());
 
         // As we merge Combyna's service container in above, there could be conflicts
-        // as some services like Translator are already defined by Symfony'a FrameworkBundle
+        // as some services like Translator are already defined by Symfony's FrameworkBundle
         $containerBuilder->addCompilerPass(new ReduceAutowiringConflictsPass());
     }
 }
